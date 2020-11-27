@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html {
+            min-height: 100%;
+            background: #172f38;
+            color: #d7dbdd;
+            margin: 0;
+            padding: 20px;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+        }
+        .container span {
+            float: left;
+            min-width: 2em;
+            margin-right: 10px;
+        }
+        .center {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            font-size: 8em;
+            color: rgba(255, 255, 255, .7);
+            transform: translate(-50%, -50%);
+            /* 针对opactiy，变化函数使用ease-in，延迟0.3s变化，变化时在0.7s完成
+               针对其他css属性，变化函数使用ease-in，变化总时间1s
+             */
+            transition: all 1s ease-in, opacity 0.7s ease-in 0.3s;
+        }
+    </style>
+</head>
+
+<body>
+	<!-- 
+
+		效果 
+		    中间一个放大的数字，如果是素数，随机色，飘出
+			小数字整齐排列，素数有颜色，和大数字相同
+		步骤 
+			总体 
+				创建布局，引入要执行的js文件
+			具体 
+				实体util 
+					是否为素数
+					随机颜色
+						定义一个颜色数组
+						生成合适的随机数
+						取出要使用的颜色
+					不断产生的数字
+						构造函数 
+							时间、数字、回调函数、timer
+						开始操作
+							先判断是否已经开始
+							启动定时器，回调，数字++
+						停止操作
+							清空定时器
+				页面
+					页面上的数字
+					页面上的事件
+						先产生数字
+						注册点击事件
+
+	 -->
+    <div id="divContainer" class="container"></div>
+    <div id="divCenter" class="center"></div>
+    <script src="main.js"></script>
+</body>
+
+</html>
